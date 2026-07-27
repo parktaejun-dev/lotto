@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import "./globals.css";
 
 const siteUrl = "https://lotto-kr.vercel.app";
@@ -85,6 +86,20 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <head>
+        {/* Google Analytics (gtag.js) GA4 */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-BPKWB5781W"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-BPKWB5781W');
+          `}
+        </Script>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
