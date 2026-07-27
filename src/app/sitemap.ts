@@ -1,7 +1,7 @@
 import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://lotto-ten-chi.vercel.app";
+  const baseUrl = "https://lotto-kr.vercel.app";
 
   return [
     {
