@@ -28,6 +28,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: siteUrl,
   },
+  verification: {
+    google: "qAXuabgXBDC3wheim4gp5N-RGgNTsj2N3Fv2MrMQtAc",
+  },
   openGraph: {
     type: "website",
     locale: "ko_KR",
