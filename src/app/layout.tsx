@@ -29,7 +29,10 @@ export const metadata: Metadata = {
     canonical: siteUrl,
   },
   verification: {
-    google: "qAXuabgXBDC3wheim4gp5N-RGgNTsj2N3Fv2MrMQtAc",
+    google: [
+      "USStsTyAt5ScMpIEvB-C25hCWuhVOULMMT4PUbR67gw",
+      "qAXuabgXBDC3wheim4gp5N-RGgNTsj2N3Fv2MrMQtAc",
+    ],
   },
   openGraph: {
     type: "website",
