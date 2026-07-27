@@ -5,7 +5,7 @@ import confetti from "canvas-confetti";
 import { CoupangWidget } from "./CoupangWidget";
 import { RealEstateWidget } from "./RealEstateWidget";
 import { getBallColorClass } from "./NumberPicker";
-import { ShoppingBag, X, Trophy, CheckCircle2, Check, Crown, Clock } from "lucide-react";
+import { ShoppingBag, X, Trophy, CheckCircle2, Check, Crown } from "lucide-react";
 
 export interface SimulationResultData {
   count: number;
@@ -96,15 +96,11 @@ export const ReceiptResult: React.FC<ReceiptResultProps> = ({
           
           {/* Infinity Mode Crown Banner if active */}
           {result.is_infinity_mode && (
-            <div className="bg-gradient-to-r from-amber-500 via-rose-500 to-amber-500 text-white rounded-2xl p-2.5 shadow-md text-center border border-amber-300">
-              <div className="flex items-center justify-center gap-1.5 font-black text-sm text-amber-100">
-                <Crown className="w-4 h-4 fill-current text-amber-200" />
-                <span>👑 1등 당첨까지 총 {result.count.toLocaleString()}장 구매</span>
+            <div className="bg-gradient-to-r from-amber-500 via-rose-500 to-amber-500 text-white rounded-2xl p-2 shadow-md text-center border border-amber-300">
+              <div className="flex items-center justify-center gap-1.5 font-black text-xs sm:text-sm text-amber-100 whitespace-nowrap">
+                <Crown className="w-4 h-4 fill-current text-amber-200 shrink-0" />
+                <span>👑 1등까지 총 {result.count.toLocaleString()}장 구매 ({result.years_needed?.toLocaleString()}년 소요)</span>
               </div>
-              <p className="text-xs font-bold text-amber-100 mt-0.5 flex items-center justify-center gap-1">
-                <Clock className="w-3 h-3 text-amber-200" />
-                <span>매주 5만 원 구매 기준 약 <strong>{result.years_needed?.toLocaleString()}년</strong> 소요</span>
-              </p>
             </div>
           )}
 
