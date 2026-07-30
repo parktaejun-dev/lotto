@@ -48,6 +48,12 @@ export const metadata: Metadata = {
     title: "로또 시뮬레이터 - 동행복권 로또 6/45 가상 추첨",
     description: "실제 로또 6/45 확률 기반 가상 추첨 시뮬레이터. 1등 당첨 시까지 현실 수익률 점검!",
   },
+  icons: {
+    icon: [
+      { url: "/icon.svg", type: "image/svg+xml" },
+    ],
+    apple: "/apple-icon",
+  },
   robots: {
     index: true,
     follow: true,

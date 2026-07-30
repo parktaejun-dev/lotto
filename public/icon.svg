@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <radialGradient id="ballGradient" cx="35%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#fef08a"/>
+      <stop offset="25%" stop-color="#fbbf24"/>
+      <stop offset="70%" stop-color="#d97706"/>
+      <stop offset="100%" stop-color="#78350f"/>
+    </radialGradient>
+    <filter id="dropShadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#000000" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+  
+  <!-- Outer Dark Rounded Container -->
+  <rect width="512" height="512" rx="128" fill="#020617"/>
+  
+  <!-- Main Golden Ball with Shadow -->
+  <circle cx="256" cy="256" r="200" fill="url(#ballGradient)" filter="url(#dropShadow)" stroke="#fef08a" stroke-width="12"/>
+  
+  <!-- Glossy Reflection Highlight -->
+  <ellipse cx="200" cy="150" rx="90" ry="45" fill="#ffffff" opacity="0.35" transform="rotate(-25 200 150)"/>
+  
+  <!-- Inner White Circle for Lotto Ball Number -->
+  <circle cx="256" cy="266" r="100" fill="#ffffff" stroke="#e2e8f0" stroke-width="6"/>
+  
+  <!-- Lucky Number 7 inside ball -->
+  <text x="256" y="304" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="120" fill="#0f172a">7</text>
+  
+  <!-- Mini Golden Crown on Top of Ball -->
+  <path d="M 216 110 L 236 135 L 256 100 L 276 135 L 296 110 L 286 150 L 226 150 Z" fill="#fef08a" stroke="#b45309" stroke-width="4"/>
+</svg>

@@ -5,7 +5,7 @@ import confetti from "canvas-confetti";
 import { CoupangWidget } from "./CoupangWidget";
 import { RealEstateWidget } from "./RealEstateWidget";
 import { getBallColorClass } from "./NumberPicker";
-import { ShoppingBag, X, Trophy, CheckCircle2, Check, Crown } from "lucide-react";
+import { ShoppingBag, X, Trophy, CheckCircle2, Check, Crown, Hourglass, Clock } from "lucide-react";
 
 export interface SimulationResultData {
   count: number;
@@ -80,7 +80,7 @@ export const ReceiptResult: React.FC<ReceiptResultProps> = ({
 
   return (
     <div className="fixed inset-0 z-40 bg-slate-950/95 backdrop-blur-md p-2 sm:p-4 flex items-center justify-center h-[100dvh] w-full overflow-hidden animate-fadeIn">
-      <div className="w-full max-w-md h-full max-h-[670px] flex flex-col justify-between bg-slate-50 rounded-3xl shadow-2xl relative border border-slate-300 font-sans text-slate-900 p-4 sm:p-5 overflow-hidden">
+      <div className="w-full max-w-md h-full max-h-[95vh] sm:max-h-[680px] flex flex-col justify-between bg-slate-50 rounded-3xl shadow-2xl relative border border-slate-300 font-sans text-slate-900 p-4 sm:p-5 overflow-y-auto">
         
         {/* Floating Close Button */}
         <button
@@ -94,13 +94,36 @@ export const ReceiptResult: React.FC<ReceiptResultProps> = ({
         {/* 1. Winning Numbers & User Selected Numbers */}
         <div className="shrink-0 space-y-2 mt-3 mb-1">
           
-          {/* Infinity Mode Crown Banner if active */}
+          {/* Infinity Mode High-Impact Highlight Card for Years Needed */}
           {result.is_infinity_mode && (
-            <div className="bg-gradient-to-r from-amber-500 via-rose-500 to-amber-500 text-white rounded-2xl p-2 shadow-md text-center border border-amber-300">
-              <div className="flex items-center justify-center gap-1.5 font-black text-xs sm:text-sm text-amber-100 whitespace-nowrap">
-                <Crown className="w-4 h-4 fill-current text-amber-200 shrink-0" />
-                <span>👑 1등까지 총 {result.count.toLocaleString()}장 구매 ({result.years_needed?.toLocaleString()}년 소요)</span>
+            <div className="bg-gradient-to-br from-slate-950 via-amber-950 to-slate-900 text-amber-100 rounded-2xl p-3 sm:p-3.5 shadow-xl text-center border-2 border-amber-400 relative overflow-hidden my-1">
+              <div className="absolute -right-3 -bottom-3 opacity-15 text-amber-400 pointer-events-none">
+                <Hourglass className="w-24 h-24" />
               </div>
+
+              <div className="flex items-center justify-center gap-1.5 text-xs font-black text-amber-400 uppercase tracking-wide mb-1">
+                <Crown className="w-4 h-4 fill-current text-amber-400 shrink-0" />
+                <span>1등 당첨까지 걸린 시간</span>
+              </div>
+
+              {/* Massive Highlight for Years Needed */}
+              <div className="bg-slate-950/80 border border-amber-500/50 rounded-xl py-2 px-3 my-1 shadow-inner">
+                <div className="text-[11px] text-amber-200/80 font-medium mb-0.5">
+                  매주 5만 원(50장)씩 개별 구매 시
+                </div>
+                <div className="text-2xl sm:text-3xl font-black text-amber-300 tracking-tight font-mono flex items-center justify-center gap-1.5">
+                  <span className="text-slate-300 text-xs sm:text-sm font-sans font-bold">무려</span>
+                  <span className="text-amber-300 text-2xl sm:text-3xl font-black drop-shadow-[0_0_12px_rgba(245,158,11,0.6)]">
+                    {result.years_needed?.toLocaleString()}년
+                  </span>
+                  <span className="text-slate-300 text-xs sm:text-sm font-sans font-bold">소요!</span>
+                </div>
+              </div>
+
+              {/* Real life perspective */}
+              <p className="text-[11px] text-amber-200 font-medium leading-snug mt-1">
+                총 <strong className="text-white font-extrabold">{result.count.toLocaleString()}장</strong> (약 {Math.round(result.total_spent / 10000).toLocaleString()}만 원)을 쉼 없이 사서 마침내 1등에 당첨되었습니다.
+              </p>
             </div>
           )}
 
